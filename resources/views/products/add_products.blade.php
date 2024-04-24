@@ -30,8 +30,12 @@
                 <textarea id="product_long_description" name="product_long_description" rows="5" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"></textarea>
             </div>
             <div class="mb-4">
-                <label for="product_price" class="block text-gray-700 font-semibold">Price:</label>
+                <label for="product_price" class="block text-gray-700 font-semibold">Product Price:</label>
                 <input type="number" id="product_price" name="product_price" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+            </div>
+            <div class="mb-4">
+                <label for="product_quantity" class="block text-gray-700 font-semibold">Product Quantity:</label>
+                <input type="number" id="product_quantity" name="product_quantity" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
             </div>
             <div class="mb-4">
                 <label for="product_category_name" class="block text-gray-700 font-semibold">Category Name:</label>
