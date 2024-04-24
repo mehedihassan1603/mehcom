@@ -113,7 +113,15 @@ class ProductController extends Controller
     }
 
     public function DeleteProduct($id){
-        $product = product::findOrFail($id)->delete();
+        $product = Product::findOrFail($id);
+        $product_category_id = $product->product_category_id;
+        $product_subcategory_id = $product->product_subcategory_id;
+
+        $product->delete();
+
+        Category::where('id', $product_category_id)->decrement('product_count');
+        Subcategory::where('id', $product_subcategory_id)->decrement('product_count');
+
         if (!$product) {
             Toastr::error('Product not found', 'Error', ["positionClass" => "toast-top-right", "progressBar" => true, "closeButton" => true]);
             return redirect()->route('all_product');
