@@ -63,4 +63,64 @@ class ProductController extends Controller
         return redirect()->route('all_product');
 
     }
+
+    public function EditProduct($id){
+        $product_info = product::findOrFail($id);
+        return view('products.edit_product',compact('product_info'));
+    }
+
+    public function UpdateProduct(Request $request){
+        $product_id = $request->product_id;
+
+        $request->validate([
+            'product_name'=>'required|unique:products,product_name,'.$product_id,
+            'product_short_description'=>'required',
+            'product_long_description'=>'required',
+            'product_price'=>'required',
+            'product_quantity'=>'required',
+            'product_img'=>'mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $product = Product::findOrFail($product_id);
+        if ($request->hasFile('product_img')) {
+            $image = $request->file('product_img');
+            $img_name = uniqid() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('uploads'), $img_name);
+            $img_url = '/uploads/' . $img_name;
+
+            $product->update([
+                'product_name'=>$request->product_name,
+                'product_short_description'=>$request->product_short_description,
+                'product_long_description'=>$request->product_long_description,
+                'product_price'=>$request->product_price,
+                'product_quantity'=>$request->product_quantity,
+                'product_img' => $img_url,
+                'slug' => strtolower(str_replace(' ','-', $request->product_name)),
+            ]);
+        } else {
+            $product->update([
+                'product_name'=>$request->product_name,
+                'product_short_description'=>$request->product_short_description,
+                'product_long_description'=>$request->product_long_description,
+                'product_price'=>$request->product_price,
+                'product_quantity'=>$request->product_quantity,
+                'slug' => strtolower(str_replace(' ','-', $request->product_name)),
+            ]);
+        }
+
+        Toastr::success('Product Updated Successfully', 'Success', ["positionClass" => "toast-top-right", "progressBar" => true, "closeButton" => true]);
+        return redirect()->route('all_product');
+    }
+
+    public function DeleteProduct($id){
+        $product = product::findOrFail($id)->delete();
+        if (!$product) {
+            Toastr::error('Product not found', 'Error', ["positionClass" => "toast-top-right", "progressBar" => true, "closeButton" => true]);
+            return redirect()->route('all_product');
+        }
+        Toastr::success('Product Deleted Successfully', 'Success', ["positionClass" => "toast-top-right", "progressBar" => true, "closeButton" => true]);
+        return redirect()->route('all_product');
+    }
+
+
 }

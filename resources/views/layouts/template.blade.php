@@ -60,7 +60,7 @@
                         <!-- Sub-menu for Products -->
                         <ul class="ml-4">
                             <li><a href="{{ route('add_product') }}" class="block text-sm hover:bg-gray-700 rounded px-4 py-2"><i class="fas fa-plus mr-2"></i> Add Product</a></li>
-                            <li><a href="#" class="block text-sm hover:bg-gray-700 rounded px-4 py-2"><i class="fas fa-list-ul mr-2"></i> View All Product</a></li>
+                            <li><a href="{{ route('all_product') }}" class="block text-sm hover:bg-gray-700 rounded px-4 py-2"><i class="fas fa-list-ul mr-2"></i> View All Product</a></li>
                             <!-- Add more sub-pages for Product management -->
                         </ul>
                     </li>

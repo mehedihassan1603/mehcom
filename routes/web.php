@@ -50,6 +50,9 @@ Route::controller(ProductController::class)->group(function(){
     Route::get('/admin/all-product', 'Index')->name('all_product');
     Route::get('/admin/add-product', 'Add')->name('add_product');
     Route::post('/admin/post-product', 'Post')->name('post_product');
+    Route::get('/admin/edit-product/{id}', 'EditProduct')->name('edit_product');
+    Route::post('/admin/update-product', 'UpdateProduct')->name('update_product');
+    Route::get('/admin/delete-product/{id}', 'DeleteProduct')->name('delete_product');
 });
 Route::controller(OrderController::class)->group(function(){
     Route::get('/admin/pending-orders', 'Index')->name('pending_orders');
