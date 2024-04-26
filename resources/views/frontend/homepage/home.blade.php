@@ -61,8 +61,8 @@
     {{-- Banner section section end --}}
     @section('main-content')
         <!-- Featured Start -->
-        <div class="container-fluid pt-5">
-            <div class="row px-xl-5 pb-3">
+        <div class="pl-0 pt-5">
+            <div class="row pb-3">
                 <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
                     <div class="d-flex align-items-center border mb-4" style="padding: 30px;">
                         <h1 class="fa fa-check text-primary m-0 mr-3"></h1>
@@ -101,7 +101,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-12 pb-1">
                         <div class="card product-item border-0 mb-4">
                             <div
-                                class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                                class="card-header mx-auto product-img position-relative overflow-hidden bg-transparent border p-0">
                                 <img class="" src="{{ $product->product_img }}" height="200px" alt="">
                             </div>
                             <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
