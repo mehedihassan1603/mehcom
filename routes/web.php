@@ -5,11 +5,13 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SubcategoryController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('frontend.layouts.template');
+
+Route::controller(HomeController::class)->group(function(){
+    Route::get('/', 'Index')->name('home');
 });
 
 Route::get('/admin/dashboard', function () {
