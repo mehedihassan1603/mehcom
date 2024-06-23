@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Add Product</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
 </head>
 <body class="bg-gray-200">
 

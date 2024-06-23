@@ -599,8 +599,6 @@ pre code {
 .container-lg,
 .container-xl {
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
 }
@@ -4367,9 +4365,10 @@ input[type="button"].btn-block {
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #fff;
+  background-color: #fcfbfb;
   background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  border: 10px solid rgba(0, 0, 0, 0.125);
+  padding: 4px;
 }
 
 .card > hr {
@@ -5317,11 +5316,11 @@ a.close.disabled {
   pointer-events: none;
 }
 
-.toast {
+/* .toast {
   flex-basis: 350px;
   max-width: 350px;
   font-size: 0.875rem;
-  background-color: rgba(255, 255, 255, 0.85);
+  background-color: green;
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
@@ -5350,14 +5349,14 @@ a.close.disabled {
   align-items: center;
   padding: 0.25rem 0.75rem;
   color: #6c757d;
-  background-color: rgba(255, 255, 255, 0.85);
+  background-color: green;
   background-clip: padding-box;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .toast-body {
   padding: 0.75rem;
-}
+} */
 
 .modal-open {
   overflow: hidden;
@@ -9548,6 +9547,7 @@ a.text-dark:hover, a.text-dark:focus {
 .cat-item .cat-img img,
 .product-item .product-img img {
   transition: .5s;
+  width: 100%;
 }
 
 .cat-item:hover .cat-img img,

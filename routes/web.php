@@ -15,13 +15,19 @@ Route::controller(HomeController::class)->group(function(){
     Route::get('/', 'Index')->name('home');
 });
 
-Route::controller(FrontendController::class)->group(function(){
-    Route::get('/category/{id}/{slug}', 'Category')->name('category');
+Route::middleware(['auth', 'role:admin'])->group(function(){
+    Route::controller(FrontendController::class)->group(function(){
+        Route::get('/category/{id}/{slug}', 'Category')->name('category');
+        Route::get('/view-details/{id}', 'ViewDetails')->name('view_details');
+        Route::post('/add-to-cart', 'AddToCart')->name('addtocart');
+        Route::get('/cart', 'Cart')->name('cart');
+        Route::get('/checkout', 'Checkout')->name('checkout');
+    });
 });
 
 Route::get('/admin/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'role:admin'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

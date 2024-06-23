@@ -17,11 +17,11 @@
         <!-- Sidebar -->
         <div class="w-1/6 bg-gray-800 text-gray-100 py-8">
             <div class="px-4">
-                <h2 class="text-xl font-semibold mb-4">MehCom</h2>
+                <a href="/" class="block text-xl hover:bg-gray-700 rounded px-4 py-2">MehCom</a>
                 <ul class="space-y-4">
                     <li>
-                        <a href="{{ route('dashboard') }}" class="block hover:bg-gray-700 rounded px-4 py-2">
-                            <i class="fas fa-tachometer-alt mr-2"></i> <!-- Font Awesome icon for Dashboard -->
+                        <a href="{{ route('dashboard') }}" class="block hover:bg-gray-700 rounded px-4 pt-2">
+                            <i class="fas fa-tachometer-alt mr-2"></i>
                             Dashboard
                         </a>
                     </li>
